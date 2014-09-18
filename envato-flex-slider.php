@@ -18,9 +18,13 @@ define ("EFS_VERSION", "0.8");
 require_once('slider-img-type.php');
 
 
-/*Add the Javascript/CSS Files!*/
-wp_enqueue_script('flexslider', EFS_PATH.'jquery.flexslider-min.js', array('jquery'));
-wp_enqueue_style('flexslider_css', EFS_PATH.'flexslider.css');
+function efs_enqueue_scripts(){
+	/*Add the Javascript/CSS Files!*/
+	wp_enqueue_script('flexslider', EFS_PATH.'jquery.flexslider-min.js', array('jquery'));
+	wp_enqueue_style('flexslider_css', EFS_PATH.'flexslider.css');
+}
+
+add_action( 'wp_enqueue_scripts', 'efs_enqueue_scripts' );
 
 
 /*Add the Hooks to place the javascript in the header*/
